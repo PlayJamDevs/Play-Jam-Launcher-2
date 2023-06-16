@@ -1,0 +1,899 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
+[ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
+[ext_resource path="res://assets/music/music.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=4]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=5]
+[ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
+[ext_resource path="res://scenes/Categories.gd" type="Script" id=7]
+[ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=8]
+[ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=9]
+[ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=10]
+[ext_resource path="res://assets/res/fonts/font_default_26px.tres" type="DynamicFont" id=11]
+
+[sub_resource type="StyleBoxTexture" id=27]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 256, 192 )
+margin_left = 256.0
+
+[sub_resource type="StyleBoxTexture" id=26]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 32, 32 )
+margin_left = 3.0
+margin_right = 4.0
+margin_top = 3.0
+margin_bottom = 4.0
+
+[sub_resource type="Animation" id=1]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Intro/FadeBlack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Intro/FadeBlack:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Intro/LabelPressKey:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../UI/Intro/LabelPressKey:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Background/Logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Background/Logo:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../UI/Intro:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../UI/Intro/LabelPressKey:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../UI/Categories/PanelDescription:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 952 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../UI/Categories/PanelDescription:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../UI/Categories/BarTop:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../UI/Categories/BarTop:rect_rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../UI/Categories:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("../UI/Categories/HBoxContainer:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("../UI/Categories/HBoxContainer:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("../UI/Categories:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("../UI/Categories/PanelDescription:self_modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "categories_idle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Categories:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Categories:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Intro:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Background/Logo:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "categories_intro"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Categories/PanelDescription:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 1096 ), Vector2( 480, 840 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Categories/PanelDescription:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Categories/BarTop:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -128 ), Vector2( 0, -16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../UI/Categories/BarTop:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Background/Logo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../UI/Intro:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../UI/Categories:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../UI/Categories/HBoxContainer:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../UI/Categories/HBoxContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../UI/Categories/PanelDescription:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.54902 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "intro"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Intro/FadeBlack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Intro/FadeBlack:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("MusicPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../UI/Intro")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter_state"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Background/Logo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Background/Logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../UI/Intro:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../UI/Intro/LabelPressKey:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../UI/Categories:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "intro_exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Intro/FadeBlack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Background/Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Intro/LabelPressKey:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.957778 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../UI/Intro")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "exit_state"
+} ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "intro_idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Intro/FadeBlack:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Intro/LabelPressKey:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Intro/LabelPressKey:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "categories_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "categories_intro"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=23]
+states/categories_idle/node = SubResource( 20 )
+states/categories_idle/position = Vector2( 661, 55 )
+states/categories_intro/node = SubResource( 21 )
+states/categories_intro/position = Vector2( 428, 55 )
+transitions = [ "categories_intro", "categories_idle", SubResource( 22 ) ]
+start_node = "categories_intro"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "intro"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "intro_exit"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "intro_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+advance_condition = "exit"
+
+[sub_resource type="AnimationNodeStateMachine" id=14]
+states/intro/node = SubResource( 9 )
+states/intro/position = Vector2( 317, 48 )
+states/intro_exit/node = SubResource( 10 )
+states/intro_exit/position = Vector2( 721, 48 )
+states/intro_idle/node = SubResource( 11 )
+states/intro_idle/position = Vector2( 508, 48 )
+transitions = [ "intro", "intro_idle", SubResource( 12 ), "intro_idle", "intro_exit", SubResource( 13 ) ]
+start_node = "intro"
+end_node = "intro_exit"
+graph_offset = Vector2( -50.0661, 0 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/Categories/node = SubResource( 23 )
+states/Categories/position = Vector2( 514, 57 )
+states/Intro/node = SubResource( 14 )
+states/Intro/position = Vector2( 313, 57 )
+transitions = [ "Intro", "Categories", SubResource( 24 ) ]
+start_node = "Intro"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=17]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="Scanlines" type="ColorRect" parent="Background"]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Logo" type="TextureRect" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Intro" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LabelPressKey" type="Label" parent="UI/Intro"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 968.0
+theme = ExtResource( 4 )
+text = "PRESIONA CUALQUIER BOTON PARA COMENZAR"
+align = 1
+valign = 1
+
+[node name="FadeBlack" type="ColorRect" parent="UI/Intro"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Categories" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 7 )
+state = 1
+
+[node name="BarTop" type="NinePatchRect" parent="UI/Categories"]
+anchor_top = 0.00740741
+anchor_right = 1.0
+anchor_bottom = 0.142593
+margin_top = -8.0
+margin_bottom = -7.99998
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 8 )
+
+[node name="PanelDescription" type="Panel" parent="UI/Categories"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.25
+anchor_top = 0.777778
+anchor_right = 0.75
+anchor_bottom = 0.948148
+margin_left = -480.0
+margin_top = 112.0
+margin_right = -480.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 129 )
+custom_styles/panel = SubResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Categories/PanelDescription"]
+anchor_left = 0.141667
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LabelDescription" type="Label" parent="UI/Categories/PanelDescription/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 4.0
+margin_top = 63.0
+margin_right = 819.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 11 )
+text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Categories"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0125
+anchor_top = 0.262963
+anchor_right = 0.9875
+anchor_bottom = 0.737037
+rect_min_size = Vector2( 0, 256 )
+custom_constants/separation = 12
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel1" type="Panel" parent="UI/Categories/HBoxContainer"]
+margin_right = 616.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel1"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PROXIMOS
+LANZAMIENTOS"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Panel2" type="Panel" parent="UI/Categories/HBoxContainer"]
+margin_left = 628.0
+margin_right = 1244.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel2"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "INDIE
+GAMES"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Panel3" type="Panel" parent="UI/Categories/HBoxContainer"]
+margin_left = 1256.0
+margin_right = 1872.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel3"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "GAME
+JAMS"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Others" type="Node" parent="."]
+
+[node name="Utilities" type="Node" parent="."]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="Utilities"]
+stream = ExtResource( 3 )
+volume_db = -80.0
+
+[node name="UIAnimations" type="AnimationPlayer" parent="Utilities"]
+anims/RESET = SubResource( 1 )
+anims/categories_idle = SubResource( 18 )
+anims/categories_intro = SubResource( 19 )
+anims/intro = SubResource( 6 )
+anims/intro_exit = SubResource( 7 )
+anims/intro_idle = SubResource( 8 )
+
+[node name="AnimationTree" type="AnimationTree" parent="Utilities" groups=["AnimTree"]]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../UIAnimations")
+parameters/playback = SubResource( 16 )
+parameters/Categories/playback = SubResource( 25 )
+parameters/Intro/playback = SubResource( 17 )
+parameters/Intro/conditions/exit = false

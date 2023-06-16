@@ -1,0 +1,9 @@
+extends Node
+
+enum UIState {
+	INTRO,
+	CATEGORY_SELECTION,
+	GAME_SELECTION,
+	EXECUTE_GAME,
+	EXIT
+}
