@@ -8,7 +8,7 @@ onready var n_LabelDescription := get_node("%LabelDescription")
 
 onready var PanelDescription := [
 	"Seleccion de juegos proximos a estrenarse. ¡Jugalos antes que nadie!",
-	"Seleccion de juegos creados y publicados por desarrolladores independientes. Descubre titulos unicos y emocionantes! ",
+	"Seleccion de juegos creados y publicados por desarrolladores independientes. Descubre titulos unicos y emocionantes!",
 	"Coleccion de juegos creados para game jams. Ideas innovadoras, mecanicas unicas, estos juegos son un diamante en bruto. Se el primero en descubrir los exitos del futuro!"
 ]
 

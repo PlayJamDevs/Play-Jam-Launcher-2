@@ -14,20 +14,38 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/EventBus.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "Globals",
 "language": "GDScript",
 "path": "res://scripts/Global.gd"
+}, {
+"base": "Node",
+"class": "QrCode",
+"language": "GDScript",
+"path": "res://scripts/qr-code/qr_code.gd"
+}, {
+"base": "Node",
+"class": "ReedSolomonGenerator",
+"language": "GDScript",
+"path": "res://scripts/qr-code/reed_solomon_generator.gd"
 }, {
 "base": "Control",
 "class": "UIState",
 "language": "GDScript",
 "path": "res://scripts/states/UIState.gd"
+}, {
+"base": "Node",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://scripts/qr-code/utils.gd"
 } ]
 _global_script_class_icons={
 "Events": "",
 "Globals": "",
-"UIState": ""
+"QrCode": "",
+"ReedSolomonGenerator": "",
+"UIState": "",
+"Utils": ""
 }
 
 [application]
