@@ -18,8 +18,14 @@ func _unhandled_input(event : InputEvent):
 	
 	selected_idx = wrapi(selected_idx + (event.get_action_strength("ui_right") - event.get_action_strength("ui_left")), 0, 3)
 	
-	for p in n_PanelC.get_children():
-		if n_PanelC.get_child(selected_idx) == p:
+	for p in n_PanelC.get_children():		
+		var _next := n_PanelC.get_child(selected_idx)
+		
+		if !_next.is_visible():
+			selected_idx += 1
+			continue
+		
+		if _next == p:
 			p.modulate = Color.cyan
 		else:
 			p.modulate = Color.white

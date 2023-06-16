@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=8]
 [ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=9]
 [ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=10]
-[ext_resource path="res://assets/res/fonts/font_default_26px.tres" type="DynamicFont" id=11]
+[ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=11]
 
 [sub_resource type="StyleBoxTexture" id=27]
 texture = ExtResource( 10 )
@@ -777,9 +777,9 @@ __meta__ = {
 [node name="LabelDescription" type="Label" parent="UI/Categories/PanelDescription/MarginContainer"]
 unique_name_in_owner = true
 margin_left = 4.0
-margin_top = 63.0
+margin_top = 51.0
 margin_right = 819.0
-margin_bottom = 120.0
+margin_bottom = 132.0
 custom_fonts/font = ExtResource( 11 )
 text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
 autowrap = true
@@ -798,12 +798,14 @@ __meta__ = {
 }
 
 [node name="Panel1" type="Panel" parent="UI/Categories/HBoxContainer"]
+visible = false
 margin_right = 616.0
 margin_bottom = 511.0
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 26 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": true,
+"_editor_description_": "No habilitar por ahora."
 }
 
 [node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel1"]
@@ -823,8 +825,7 @@ autowrap = true
 uppercase = true
 
 [node name="Panel2" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_left = 628.0
-margin_right = 1244.0
+margin_right = 930.0
 margin_bottom = 511.0
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 26 )
@@ -849,7 +850,7 @@ autowrap = true
 uppercase = true
 
 [node name="Panel3" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_left = 1256.0
+margin_left = 942.0
 margin_right = 1872.0
 margin_bottom = 511.0
 size_flags_horizontal = 3
