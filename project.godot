@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Events",
+"language": "GDScript",
+"path": "res://scripts/EventBus.gd"
+}, {
+"base": "Reference",
+"class": "Globals",
+"language": "GDScript",
+"path": "res://scripts/Global.gd"
+}, {
 "base": "Control",
 "class": "UIState",
 "language": "GDScript",
 "path": "res://scripts/states/UIState.gd"
 } ]
 _global_script_class_icons={
+"Events": "",
+"Globals": "",
 "UIState": ""
 }
 
@@ -27,7 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 EventBus="*res://scripts/EventBus.gd"
-Globals="*res://scripts/Globals.gd"
+Global="*res://scripts/Global.gd"
 
 [display]
 
