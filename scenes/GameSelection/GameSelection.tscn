@@ -1,0 +1,181 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GameSelection/GameSelection.gd" type="Script" id=1]
+[ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/res/fonts/font_default_48px.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.435294, 0.258824, 0.662745, 1 )
+
+[node name="GameSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.282353, 0.027451, 0.482353, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="left_space" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 36.0
+margin_right = 636.0
+margin_bottom = 1044.0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 600, 0 )
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+margin_right = 600.0
+margin_bottom = 1044.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="right_space" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 36.0
+margin_right = 600.0
+margin_bottom = 1044.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+items = [ "TITULO", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false, "Item 7", null, false, "Item 8", null, false, "Item 9", null, false, "Item 10", null, false, "Item 11", null, false, "Item 12", null, false, "Item 13", null, false, "Item 14", null, false, "Item 15", null, false, "Item 16", null, false, "Item 17", null, false, "Item 18", null, false, "Item 19", null, false, "Item 20", null, false, "Item 21", null, false, "Item 22", null, false, "Item 23", null, false, "Item 24", null, false ]
+
+[node name="middle_space" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 640.0
+margin_right = 672.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 32, 0 )
+
+[node name="info" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 676.0
+margin_right = 1852.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 32, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/info"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="vertical_space" type="Control" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_right = 1176.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_top = 68.0
+margin_right = 1176.0
+margin_bottom = 312.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer"]
+margin_right = 1108.0
+margin_bottom = 244.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="nombre_del_juego" type="Label" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1108.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 4 )
+text = "Nombre del juego"
+
+[node name="año" type="Label" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 62.0
+margin_right = 1108.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 4 )
+text = "Año:"
+
+[node name="autor" type="Label" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 1108.0
+margin_bottom = 182.0
+custom_fonts/font = ExtResource( 4 )
+text = "Autor:"
+
+[node name="link" type="Label" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 186.0
+margin_right = 1108.0
+margin_bottom = 244.0
+custom_fonts/font = ExtResource( 4 )
+text = "Link:"
+
+[node name="QR" type="TextureRect" parent="VBoxContainer/HBoxContainer/info/VBoxContainer/HBoxContainer"]
+margin_left = 1112.0
+margin_right = 1176.0
+margin_bottom = 244.0
+texture = ExtResource( 3 )
+
+[node name="vertical_space2" type="Control" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_top = 316.0
+margin_right = 1176.0
+margin_bottom = 348.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="game_screenshot" type="TextureRect" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_top = 352.0
+margin_right = 500.0
+margin_bottom = 684.0
+rect_min_size = Vector2( 500, 332 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 3 )
+stretch_mode = 2
+
+[node name="vertical_space3" type="Control" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_top = 688.0
+margin_right = 1176.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="descripcion" type="Label" parent="VBoxContainer/HBoxContainer/info/VBoxContainer"]
+margin_top = 724.0
+margin_right = 1176.0
+margin_bottom = 1044.0
+size_flags_vertical = 7
+custom_fonts/font = ExtResource( 4 )
+text = "Descripción: lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+autowrap = true
+
+[node name="right_space" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_left = 1856.0
+margin_right = 1920.0
+margin_bottom = 1044.0
+rect_min_size = Vector2( 64, 0 )
+
+[node name="vertical_space" type="Control" parent="VBoxContainer"]
+margin_top = 1048.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 0, 32 )
