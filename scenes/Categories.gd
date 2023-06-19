@@ -12,22 +12,31 @@ onready var PanelDescription := [
 	"Coleccion de juegos creados para game jams. Ideas innovadoras, mecanicas unicas, estos juegos son un diamante en bruto. Se el primero en descubrir los exitos del futuro!"
 ]
 
-var selected_idx := 0
+var selected_idx := 1
+var selected
 
 func _unhandled_input(event : InputEvent):
 	
-	selected_idx = wrapi(selected_idx + (event.get_action_strength("ui_right") - event.get_action_strength("ui_left")), 0, 3)
+	var direction = (event.get_action_strength("ui_right") - event.get_action_strength("ui_left"))
+	if !direction:
+		return
+	#do-while skip invisible nodes
+	while true:
+		selected_idx = wrapi(selected_idx + direction, 0, 3)
+		if n_PanelC.get_child(selected_idx).is_visible():
+			break
 	
-	for p in n_PanelC.get_children():		
-		var _next := n_PanelC.get_child(selected_idx)
-		
-		if !_next.is_visible():
-			selected_idx += 1
-			continue
-		
-		if _next == p:
+	update_selected()
+
+
+func update_selected():
+	selected = n_PanelC.get_child(selected_idx)
+	for p in n_PanelC.get_children():
+		if selected == p:
 			p.modulate = Color.cyan
 		else:
 			p.modulate = Color.white
-	
 	n_LabelDescription.text = PanelDescription[selected_idx]
+
+func _ready():
+	update_selected()
