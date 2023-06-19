@@ -1,17 +1,26 @@
 extends Control
 #extends UIState
-#
-#
-## Declare member variables here. Examples:
-## var a: int = 2
-## var b: String = "text"
-#
-#
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-##func _process(delta: float) -> void:
-##	pass
+
+onready var item_list: ItemList = $"%ItemList"
+
+
+onready var title: Label = $"%title"
+onready var year: Label = $"%year"
+onready var author: Label = $"%author"
+onready var link: Label = $"%link"
+onready var qr: TextureRect = $"%QR"
+onready var cover: TextureRect = $"%cover"
+onready var description: Label = $"%description"
+var executable_path := ""
+
+func update_game(info: GameData):
+	title.text = info.title
+	year.text = "Año: %s" % info.year
+	author.text = "Autor: %s" % info.author
+	link.text = "Link: %s" % info.link
+	description.text = "Descripción: %s" % info.description
+	cover.texture = info.texture
+	executable_path = info.executable_path
+	qr.texture = info.qr_texture
+	pass
+	

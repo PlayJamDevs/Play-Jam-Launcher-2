@@ -12,10 +12,20 @@ onready var PanelDescription := [
 	"Coleccion de juegos creados para game jams. Ideas innovadoras, mecanicas unicas, estos juegos son un diamante en bruto. Se el primero en descubrir los exitos del futuro!"
 ]
 
+onready var folders := [
+	"estrenos",
+	"indie",
+	"jams"
+]
+
+
 var selected_idx := 1
 var selected
 
 func _unhandled_input(event : InputEvent):
+	
+	if event.is_action_pressed("ui_accept"):
+		open_games_folder(folders[selected_idx])
 	
 	var direction = (event.get_action_strength("ui_right") - event.get_action_strength("ui_left"))
 	if !direction:
@@ -40,3 +50,7 @@ func update_selected():
 
 func _ready():
 	update_selected()
+
+func open_games_folder(folder_name):
+	#TODO
+	pass
