@@ -10,3 +10,5 @@ func enter_state() -> void:
 func exit_state() -> void:
 	set_process_unhandled_input(false)
 
+func _ready() -> void:
+	exit_state()

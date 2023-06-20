@@ -406,6 +406,20 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.54902 ) ]
 }
+tracks/10/type = "method"
+tracks/10/path = NodePath("../UI/Categories")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter_state"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "intro"
@@ -741,8 +755,8 @@ state = 1
 anchor_top = 0.00740741
 anchor_right = 1.0
 anchor_bottom = 0.142593
-margin_top = -8.0
-margin_bottom = -7.99998
+margin_right = 5760.0
+margin_bottom = 438.001
 rect_min_size = Vector2( 0, 128 )
 texture = ExtResource( 8 )
 
@@ -752,10 +766,9 @@ anchor_left = 0.25
 anchor_top = 0.777778
 anchor_right = 0.75
 anchor_bottom = 0.948148
-margin_left = -480.0
-margin_top = 112.0
-margin_right = -480.0
-margin_bottom = 112.0
+margin_top = 952.0
+margin_right = 2880.0
+margin_bottom = 1504.0
 rect_min_size = Vector2( 0, 129 )
 custom_styles/panel = SubResource( 27 )
 __meta__ = {
@@ -777,9 +790,9 @@ __meta__ = {
 [node name="LabelDescription" type="Label" parent="UI/Categories/PanelDescription/MarginContainer"]
 unique_name_in_owner = true
 margin_left = 4.0
-margin_top = 51.0
-margin_right = 819.0
-margin_bottom = 132.0
+margin_top = 256.0
+margin_right = 2467.0
+margin_bottom = 295.0
 custom_fonts/font = ExtResource( 11 )
 text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
 autowrap = true

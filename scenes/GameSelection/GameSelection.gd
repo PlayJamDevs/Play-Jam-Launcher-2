@@ -1,26 +1,28 @@
 extends Control
 #extends UIState
-
+onready var game_info_display: Control = $"%game_info_display"
 onready var item_list: ItemList = $"%ItemList"
 
+var game_list := []
 
-onready var title: Label = $"%title"
-onready var year: Label = $"%year"
-onready var author: Label = $"%author"
-onready var link: Label = $"%link"
-onready var qr: TextureRect = $"%QR"
-onready var cover: TextureRect = $"%cover"
-onready var description: Label = $"%description"
-var executable_path := ""
+func _ready() -> void:
+	item_list.connect("item_selected",self,"_on_item_selected")
+	item_list.connect("item_activated",self,"_on_item_activated")
 
-func update_game(info: GameData):
-	title.text = info.title
-	year.text = "Año: %s" % info.year
-	author.text = "Autor: %s" % info.author
-	link.text = "Link: %s" % info.link
-	description.text = "Descripción: %s" % info.description
-	cover.texture = info.texture
-	executable_path = info.executable_path
-	qr.texture = info.qr_texture
+func _on_item_selected(index: int):
+	game_info_display.display_game(game_list[index])
+
+func _on_item_activated(index: int):
+	var info: GameData = game_list[index]
+	execute(info.get_executable_path())
+
+func execute(path):
 	pass
-	
+
+func load_list(list: Array):
+	game_list = list
+	item_list.clear()
+	for element in game_list:
+		var game : GameData = element
+		item_list.add_item(game.title)
+		pass

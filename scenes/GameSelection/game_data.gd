@@ -1,9 +1,15 @@
+extends Reference
 class_name GameData
+var path_to_directory := ""
+var executable_name := ""
 var title := ""
 var year := ""
 var author := ""
 var link := ""
 var description := ""
-var executable_path := ""
-var texture : Texture
-var qr_texture : Texture
+
+
+func get_cover_path():
+	return path_to_directory.plus_file("Cover.png")
+func get_executable_path():
+	return path_to_directory.plus_file(executable_name)
