@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -6,25 +6,8 @@
 [ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
-[ext_resource path="res://scenes/Categories.gd" type="Script" id=7]
-[ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=8]
-[ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=9]
-[ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=10]
-[ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=11]
+[ext_resource path="res://scenes/Categories/Categories.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/GameSelection/GameSelection.tscn" type="PackedScene" id=12]
-
-[sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 256, 192 )
-margin_left = 256.0
-
-[sub_resource type="StyleBoxTexture" id=26]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 32, 32 )
-margin_left = 3.0
-margin_right = 4.0
-margin_top = 3.0
-margin_bottom = 4.0
 
 [sub_resource type="Animation" id=1]
 resource_name = "RESET"
@@ -1020,151 +1003,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Categories" type="Control" parent="UI"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 4 )
-script = ExtResource( 7 )
-state = 1
-
-[node name="BarTop" type="NinePatchRect" parent="UI/Categories"]
-anchor_top = 0.00740741
-anchor_right = 1.0
-anchor_bottom = 0.142593
-margin_top = -8.0
-margin_bottom = -7.99998
-rect_min_size = Vector2( 0, 128 )
-texture = ExtResource( 8 )
-
-[node name="PanelDescription" type="Panel" parent="UI/Categories"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.25
-anchor_top = 0.777778
-anchor_right = 0.75
-anchor_bottom = 0.948148
-margin_left = -480.0
-margin_top = 112.0
-margin_right = -480.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 0, 129 )
-custom_styles/panel = SubResource( 27 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Categories/PanelDescription"]
-anchor_left = 0.141667
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
-custom_constants/margin_bottom = 4
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="LabelDescription" type="Label" parent="UI/Categories/PanelDescription/MarginContainer"]
-unique_name_in_owner = true
-margin_left = 4.0
-margin_top = 51.0
-margin_right = 819.0
-margin_bottom = 132.0
-custom_fonts/font = ExtResource( 11 )
-text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
-autowrap = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Categories"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.0125
-anchor_top = 0.262963
-anchor_right = 0.9875
-anchor_bottom = 0.737037
-rect_min_size = Vector2( 0, 256 )
-custom_constants/separation = 12
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Panel1" type="Panel" parent="UI/Categories/HBoxContainer"]
-visible = false
-margin_right = 616.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": "No habilitar por ahora."
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel1"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "PROXIMOS
-LANZAMIENTOS"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Panel2" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_right = 930.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel2"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "INDIE
-GAMES"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Panel3" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_left = 942.0
-margin_right = 1872.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel3"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "GAME
-JAMS"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
+[node name="Categories" parent="UI" instance=ExtResource( 7 )]
 
 [node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true

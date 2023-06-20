@@ -32,6 +32,7 @@ func _on_item_activated(index: int):
 	_execute(info.get_executable_path())
 
 func _execute(path):
+	OS.execute(path, PoolStringArray())
 	pass
 
 func _display_game_list(list: Array):

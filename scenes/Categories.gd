@@ -54,7 +54,7 @@ func _ready():
 func open_games_folder(folder_name):
 	goto_game_selection(folder_name)
 
-onready var game_selection: Control = $"%GameSelection"
+onready var game_selection: Control = owner.get_node("%GameSelection")
 
 func goto_game_selection(folder_name):
 	game_selection.setup(folder_name)
