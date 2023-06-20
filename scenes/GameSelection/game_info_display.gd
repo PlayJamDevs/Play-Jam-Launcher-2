@@ -16,9 +16,8 @@ func display_game(info: GameData):
 	link.text = "Link: %s" % info.link
 	description.text = "Descripción: %s" % info.description
 	
-	var cover_path = info.get_cover_path()
-	cover.texture = load_img(cover_path)
-	qr.texture = generate_qr(info.link)
+	cover.texture = info.get_cover()
+	qr.texture = info.get_qr()
 	
 	executable_path = info.get_executable_path()
 	
@@ -26,20 +25,8 @@ func display_game(info: GameData):
 	
 	pass
 
-func generate_qr(text) -> Texture:
-	var qr_code: QrCode = QrCode.new()
-	qr_code.error_correct_level = QrCode.ERROR_CORRECT_LEVEL.LOW
-	var texture: ImageTexture = qr_code.get_texture(text)
-	return texture
 
-func load_img(path) -> Texture:
-	var img := Image.new()
-	var code = img.load(path)
-	if code:
-		print("attempt to load img at ", path, " returns in error_code ", code)
-	var tex := ImageTexture.new()
-	tex.create_from_image(img, 0)
-	return tex
+
 	
 
 func _ready() -> void:
