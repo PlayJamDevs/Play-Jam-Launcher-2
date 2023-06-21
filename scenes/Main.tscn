@@ -1009,8 +1009,7 @@ color = Color( 0, 0, 0, 1 )
 unique_name_in_owner = true
 visible = false
 margin_top = 1080.0
-margin_right = 3840.0
-margin_bottom = 3240.0
+margin_bottom = 1080.0
 
 [node name="Others" type="Node" parent="."]
 
