@@ -9,19 +9,24 @@ func _enter_state():
 
 func setup(folder):
 	_display_game_list(_get_games_in_folder(folder))
+	focus()
 
 func focus():
-	item_list.select(0)
-	_on_item_selected(0)
+	if item_list.get_item_count():
+		item_list.select(0)
+		_on_item_selected(0)
+	else:
+		game_info_display.clear()
 	item_list.grab_focus()
 
 func _ready() -> void:
 	item_list.connect("item_selected", self, "_on_item_selected")
 	item_list.connect("item_activated", self, "_on_item_activated")
-	setup("indie")
 
 func _on_item_selected(index: int):
 	game_info_display.display_game(game_list[index])
+	
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

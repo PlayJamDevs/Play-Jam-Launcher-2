@@ -21,21 +21,20 @@ func display_game(info: GameData):
 	
 	executable_path = info.get_executable_path()
 	
-	
-	
-	pass
 
-
-
-	
 
 func _ready() -> void:
+	clear()
+
+func clear() -> void:
 	var d = GameData.new()
-	d.title = "jaja"
-	d.year = "2023"
-	d.author = "streq"
-	d.link = "google.com"
-	d.description = "mi juego"
-	d.path_to_directory = "/home/streq/.local/share/Steam/steamapps/common/Godot Engine/games/indie/Recontra"
-	d.executable_name = "Ejecutable.x86_64"
-	display_game(d)
+	
+	title.text = "No hay juegos"
+	year.text = "Este directorio de juegos está vacío"
+	author.text = ""
+	link.text = ""
+	description.text = ""
+	cover.texture = null
+	qr.texture = null
+	executable_path = ""
+
