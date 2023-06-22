@@ -16,8 +16,8 @@ func display_game(info: GameData):
 	link.text = "Link: %s" % info.link
 	description.text = "Descripción: %s" % info.description
 	
-	cover.texture = info.get_cover()
-	qr.texture = info.get_qr()
+	cover.texture = info.cover
+	qr.texture = info.qr
 	
 	executable_path = info.get_executable_path()
 	
