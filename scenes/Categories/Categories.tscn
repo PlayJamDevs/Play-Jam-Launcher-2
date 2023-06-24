@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Categories.gd" type="Script" id=1]
+[ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=2]
+[ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=5]
+[ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=6]
+
+[sub_resource type="StyleBoxTexture" id=27]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 256, 192 )
+margin_left = 256.0
+
+[sub_resource type="StyleBoxTexture" id=26]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 32 )
+margin_left = 3.0
+margin_right = 4.0
+margin_top = 3.0
+margin_bottom = 4.0
+
+[node name="Categories" type="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
+state = 1
+
+[node name="BarTop" type="NinePatchRect" parent="."]
+anchor_top = 0.00740741
+anchor_right = 1.0
+anchor_bottom = 0.142593
+margin_top = -8.0
+margin_bottom = -7.99998
+rect_min_size = Vector2( 0, 128 )
+texture = ExtResource( 6 )
+
+[node name="PanelDescription" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.25
+anchor_top = 0.777778
+anchor_right = 0.75
+anchor_bottom = 0.948148
+margin_left = -480.0
+margin_top = 112.0
+margin_right = -480.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 129 )
+custom_styles/panel = SubResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDescription"]
+anchor_left = 0.141667
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LabelDescription" type="Label" parent="PanelDescription/MarginContainer"]
+unique_name_in_owner = true
+margin_left = 4.0
+margin_top = 51.0
+margin_right = 819.0
+margin_bottom = 132.0
+custom_fonts/font = ExtResource( 3 )
+text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0125
+anchor_top = 0.262963
+anchor_right = 0.9875
+anchor_bottom = 0.737037
+rect_min_size = Vector2( 0, 256 )
+custom_constants/separation = 12
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel1" type="Panel" parent="HBoxContainer"]
+visible = false
+margin_right = 616.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "No habilitar por ahora."
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Panel1"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Panel1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PROXIMOS
+LANZAMIENTOS"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+margin_right = 930.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Panel2"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "INDIE
+GAMES"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Panel3" type="Panel" parent="HBoxContainer"]
+margin_left = 942.0
+margin_right = 1872.0
+margin_bottom = 511.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Panel3"]
+modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Panel3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "GAME
+JAMS"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true

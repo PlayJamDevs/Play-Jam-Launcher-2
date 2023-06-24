@@ -12,22 +12,53 @@ onready var PanelDescription := [
 	"Coleccion de juegos creados para game jams. Ideas innovadoras, mecanicas unicas, estos juegos son un diamante en bruto. Se el primero en descubrir los exitos del futuro!"
 ]
 
-var selected_idx := 0
+onready var folders := [
+	"estrenos",
+	"indie",
+	"jams"
+]
+
+var selected_idx := 1
+var selected
 
 func _unhandled_input(event : InputEvent):
 	
-	selected_idx = wrapi(selected_idx + (event.get_action_strength("ui_right") - event.get_action_strength("ui_left")), 0, 3)
+	if event.is_action_pressed("ui_accept"):
+		open_games_folder(folders[selected_idx])
+		return
 	
-	for p in n_PanelC.get_children():		
-		var _next := n_PanelC.get_child(selected_idx)
-		
-		if !_next.is_visible():
-			selected_idx += 1
-			continue
-		
-		if _next == p:
+	var direction = (event.get_action_strength("ui_right") - event.get_action_strength("ui_left"))
+	if !direction:
+		return
+	#do-while skip invisible nodes
+	while true:
+		selected_idx = wrapi(selected_idx + direction, 0, 3)
+		if n_PanelC.get_child(selected_idx).is_visible():
+			break
+	
+	update_selected()
+
+func update_selected():
+	selected = n_PanelC.get_child(selected_idx)
+	for p in n_PanelC.get_children():
+		if selected == p:
 			p.modulate = Color.cyan
 		else:
 			p.modulate = Color.white
-	
 	n_LabelDescription.text = PanelDescription[selected_idx]
+
+func _ready():
+	._ready()
+	update_selected()
+
+func open_games_folder(folder_name):
+	goto_game_selection(folder_name)
+
+onready var game_selection: Control = owner.get_node("%GameSelection")
+
+func goto_game_selection(folder_name):
+	game_selection.setup(folder_name)
+	n_AnimTree["parameters/Categories/conditions/exit"] = true
+	
+func _enter_state():
+	n_AnimTree["parameters/Categories/conditions/exit"] = false

@@ -10,5 +10,9 @@ func exit_state() -> void:
 
 func _unhandled_input(event : InputEvent):
 	
-	if event.is_action_released("ui_accept"):
+	if (
+		event is InputEventKey or
+		event is InputEventJoypadButton
+	) and event.pressed:
+		
 		n_AnimTree["parameters/Intro/conditions/exit"] = true

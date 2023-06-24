@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -6,24 +6,8 @@
 [ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=4]
 [ext_resource path="res://scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
-[ext_resource path="res://scenes/Categories.gd" type="Script" id=7]
-[ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=8]
-[ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=9]
-[ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=10]
-[ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=11]
-
-[sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 256, 192 )
-margin_left = 256.0
-
-[sub_resource type="StyleBoxTexture" id=26]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 32, 32 )
-margin_left = 3.0
-margin_right = 4.0
-margin_top = 3.0
-margin_bottom = 4.0
+[ext_resource path="res://scenes/Categories/Categories.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/GameSelection/GameSelection.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RESET"
@@ -231,6 +215,143 @@ tracks/16/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/17/type = "value"
+tracks/17/path = NodePath("../UI/GameSelection:rect_position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1080 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("../UI/GameSelection:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "categories_exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Categories/PanelDescription:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 840 ), Vector2( 480, 1096 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/Categories/PanelDescription:rect_rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../UI/Categories/BarTop:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ), Vector2( 0, -128 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../UI/Categories/BarTop:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../UI/Categories:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../UI/Categories/HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../UI/Categories/HBoxContainer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../UI/Categories/PanelDescription:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.54902 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("../UI/Categories")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "exit_state"
+} ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "categories_idle"
@@ -405,6 +526,110 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 0.54902 ) ]
+}
+tracks/10/type = "method"
+tracks/10/path = NodePath("../UI/Categories")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter_state"
+} ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "game_select_exit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/GameSelection:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1080 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/GameSelection:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../UI/GameSelection")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "exit_state"
+} ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "game_select_idle"
+
+[sub_resource type="Animation" id=31]
+resource_name = "game_select_intro"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/GameSelection:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1080 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../UI/GameSelection:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../UI/GameSelection")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "enter_state"
+}, {
+"args": [  ],
+"method": "focus"
+} ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -616,6 +841,9 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "categories_exit"
+
 [sub_resource type="AnimationNodeAnimation" id=20]
 animation = "categories_idle"
 
@@ -624,14 +852,48 @@ animation = "categories_intro"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+advance_condition = "exit"
 
 [sub_resource type="AnimationNodeStateMachine" id=23]
+states/categories_exit/node = SubResource( 32 )
+states/categories_exit/position = Vector2( 902, 55 )
 states/categories_idle/node = SubResource( 20 )
 states/categories_idle/position = Vector2( 661, 55 )
 states/categories_intro/node = SubResource( 21 )
 states/categories_intro/position = Vector2( 428, 55 )
-transitions = [ "categories_intro", "categories_idle", SubResource( 22 ) ]
+transitions = [ "categories_intro", "categories_idle", SubResource( 22 ), "categories_idle", "categories_exit", SubResource( 33 ) ]
 start_node = "categories_intro"
+end_node = "categories_exit"
+
+[sub_resource type="AnimationNodeAnimation" id=38]
+animation = "game_select_exit"
+
+[sub_resource type="AnimationNodeAnimation" id=39]
+animation = "game_select_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=40]
+animation = "game_select_intro"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+advance_condition = "exit"
+
+[sub_resource type="AnimationNodeStateMachine" id=34]
+states/game_select_exit/node = SubResource( 38 )
+states/game_select_exit/position = Vector2( 820, 84 )
+states/game_select_idle/node = SubResource( 39 )
+states/game_select_idle/position = Vector2( 582, 84 )
+states/game_select_intro/node = SubResource( 40 )
+states/game_select_intro/position = Vector2( 346, 84 )
+transitions = [ "game_select_intro", "game_select_idle", SubResource( 41 ), "game_select_idle", "game_select_exit", SubResource( 42 ) ]
+start_node = "game_select_intro"
+end_node = "game_select_exit"
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "intro"
@@ -665,17 +927,29 @@ graph_offset = Vector2( -50.0661, 0 )
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=15]
 states/Categories/node = SubResource( 23 )
-states/Categories/position = Vector2( 514, 57 )
+states/Categories/position = Vector2( 524, 57 )
+states/GameSelection/node = SubResource( 34 )
+states/GameSelection/position = Vector2( 799, 57 )
 states/Intro/node = SubResource( 14 )
-states/Intro/position = Vector2( 313, 57 )
-transitions = [ "Intro", "Categories", SubResource( 24 ) ]
+states/Intro/position = Vector2( 314, 57 )
+transitions = [ "Intro", "Categories", SubResource( 24 ), "Categories", "GameSelection", SubResource( 35 ), "GameSelection", "Categories", SubResource( 36 ) ]
 start_node = "Intro"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=16]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=37]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=17]
 
@@ -729,151 +1003,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Categories" type="Control" parent="UI"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 4 )
-script = ExtResource( 7 )
-state = 1
+[node name="Categories" parent="UI" instance=ExtResource( 7 )]
 
-[node name="BarTop" type="NinePatchRect" parent="UI/Categories"]
-anchor_top = 0.00740741
-anchor_right = 1.0
-anchor_bottom = 0.142593
-margin_top = -8.0
-margin_bottom = -7.99998
-rect_min_size = Vector2( 0, 128 )
-texture = ExtResource( 8 )
-
-[node name="PanelDescription" type="Panel" parent="UI/Categories"]
-self_modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.25
-anchor_top = 0.777778
-anchor_right = 0.75
-anchor_bottom = 0.948148
-margin_left = -480.0
-margin_top = 112.0
-margin_right = -480.0
-margin_bottom = 112.0
-rect_min_size = Vector2( 0, 129 )
-custom_styles/panel = SubResource( 27 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Categories/PanelDescription"]
-anchor_left = 0.141667
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
-custom_constants/margin_bottom = 4
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="LabelDescription" type="Label" parent="UI/Categories/PanelDescription/MarginContainer"]
+[node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true
-margin_left = 4.0
-margin_top = 51.0
-margin_right = 819.0
-margin_bottom = 132.0
-custom_fonts/font = ExtResource( 11 )
-text = "Coleccion de titulos proximos a estrenarse. ¡Jugalos antes que nadie!"
-autowrap = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Categories"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.0125
-anchor_top = 0.262963
-anchor_right = 0.9875
-anchor_bottom = 0.737037
-rect_min_size = Vector2( 0, 256 )
-custom_constants/separation = 12
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Panel1" type="Panel" parent="UI/Categories/HBoxContainer"]
 visible = false
-margin_right = 616.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true,
-"_editor_description_": "No habilitar por ahora."
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel1"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "PROXIMOS
-LANZAMIENTOS"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Panel2" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_right = 930.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel2"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "INDIE
-GAMES"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
-
-[node name="Panel3" type="Panel" parent="UI/Categories/HBoxContainer"]
-margin_left = 942.0
-margin_right = 1872.0
-margin_bottom = 511.0
-size_flags_horizontal = 3
-custom_styles/panel = SubResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/Categories/HBoxContainer/Panel3"]
-modulate = Color( 0.364706, 0, 0.529412, 0.470588 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Label" type="Label" parent="UI/Categories/HBoxContainer/Panel3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "GAME
-JAMS"
-align = 1
-valign = 1
-autowrap = true
-uppercase = true
+margin_top = 1080.0
+margin_bottom = 1080.0
 
 [node name="Others" type="Node" parent="."]
 
@@ -885,8 +1021,12 @@ volume_db = -80.0
 
 [node name="UIAnimations" type="AnimationPlayer" parent="Utilities"]
 anims/RESET = SubResource( 1 )
+anims/categories_exit = SubResource( 28 )
 anims/categories_idle = SubResource( 18 )
 anims/categories_intro = SubResource( 19 )
+anims/game_select_exit = SubResource( 43 )
+anims/game_select_idle = SubResource( 30 )
+anims/game_select_intro = SubResource( 31 )
 anims/intro = SubResource( 6 )
 anims/intro_exit = SubResource( 7 )
 anims/intro_idle = SubResource( 8 )
@@ -896,5 +1036,8 @@ tree_root = SubResource( 15 )
 anim_player = NodePath("../UIAnimations")
 parameters/playback = SubResource( 16 )
 parameters/Categories/playback = SubResource( 25 )
+parameters/Categories/conditions/exit = false
+parameters/GameSelection/playback = SubResource( 37 )
+parameters/GameSelection/conditions/exit = false
 parameters/Intro/playback = SubResource( 17 )
 parameters/Intro/conditions/exit = false
