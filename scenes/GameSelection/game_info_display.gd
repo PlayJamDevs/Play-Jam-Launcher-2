@@ -9,6 +9,8 @@ onready var cover: TextureRect = $"%cover"
 onready var description: Label = $"%description"
 var executable_path := ""
 
+const MAX_QR_SIZE = 240
+
 func display_game(info: GameData):
 	title.text = info.title
 	year.text = "Año: %s" % info.year
@@ -20,8 +22,6 @@ func display_game(info: GameData):
 	qr.texture = info.qr
 	
 	executable_path = info.get_executable_path()
-	
-
 
 func _ready() -> void:
 	clear()

@@ -102,16 +102,17 @@ margin_right = 1200.0
 margin_bottom = 312.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer"]
-margin_right = 1004.0
+margin_right = 956.0
 margin_bottom = 244.0
+rect_min_size = Vector2( 860, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="title" type="Label" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 1004.0
+margin_right = 956.0
 margin_bottom = 58.0
-rect_min_size = Vector2( 980, 58 )
+rect_min_size = Vector2( 0, 58 )
 custom_fonts/font = ExtResource( 4 )
 text = "Nombre del juego"
 clip_text = true
@@ -119,9 +120,9 @@ clip_text = true
 [node name="year" type="Label" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 62.0
-margin_right = 1004.0
+margin_right = 956.0
 margin_bottom = 120.0
-rect_min_size = Vector2( 980, 58 )
+rect_min_size = Vector2( 0, 58 )
 custom_fonts/font = ExtResource( 4 )
 text = "Año:"
 clip_text = true
@@ -129,9 +130,9 @@ clip_text = true
 [node name="author" type="Label" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 124.0
-margin_right = 1004.0
+margin_right = 956.0
 margin_bottom = 182.0
-rect_min_size = Vector2( 980, 58 )
+rect_min_size = Vector2( 0, 58 )
 custom_fonts/font = ExtResource( 4 )
 text = "Autor:"
 clip_text = true
@@ -139,19 +140,25 @@ clip_text = true
 [node name="link" type="Label" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 186.0
-margin_right = 1004.0
+margin_right = 956.0
 margin_bottom = 244.0
-rect_min_size = Vector2( 980, 58 )
+rect_min_size = Vector2( 0, 58 )
 custom_fonts/font = ExtResource( 4 )
 text = "Link:"
 clip_text = true
 
-[node name="QR" type="TextureRect" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 1008.0
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer"]
+margin_left = 960.0
 margin_right = 1200.0
 margin_bottom = 244.0
-rect_min_size = Vector2( 192, 192 )
+rect_min_size = Vector2( 240, 240 )
+
+[node name="QR" type="TextureRect" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+margin_top = 2.0
+margin_right = 240.0
+margin_bottom = 242.0
+rect_min_size = Vector2( 240, 240 )
 texture = ExtResource( 3 )
 stretch_mode = 5
 
