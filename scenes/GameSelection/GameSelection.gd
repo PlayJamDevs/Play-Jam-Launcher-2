@@ -3,7 +3,7 @@ onready var game_info_display: Control = $"%game_info_display"
 onready var item_list: ItemList = $"%ItemList"
 
 var game_list := []
-
+var selected_item = -1
 func _enter_state():
 	n_AnimTree["parameters/GameSelection/conditions/exit"] = false
 
@@ -13,11 +13,9 @@ func setup(folder):
 
 func focus():
 	if item_list.get_item_count():
-		item_list.select(0)
-		_on_item_selected(0)
+		select(0)
 	else:
 		game_info_display.clear()
-	item_list.grab_focus()
 
 func _ready() -> void:
 	item_list.connect("item_selected", self, "_on_item_selected")
@@ -25,19 +23,41 @@ func _ready() -> void:
 
 func _on_item_selected(index: int):
 	game_info_display.display_game(game_list[index])
-	
+	selected_item = index
 	
 
 func _unhandled_input(event: InputEvent) -> void:
+	if !OS.is_window_focused():
+		return
 	if event.is_action_pressed("ui_cancel"):
 		n_AnimTree["parameters/GameSelection/conditions/exit"] = true
+	if item_list.items.empty():
+		return
+	if event.is_action_pressed("ui_accept"):
+		activate()
+	if event.is_action_pressed("ui_down", true):
+		select(selected_item + 1)
+	if event.is_action_pressed("ui_up", true):
+		select(selected_item - 1)
+
+func select(idx):
+	var items = item_list.get_item_count()
+	idx = posmod(idx, items)
+	item_list.select(idx)
+	_on_item_selected(idx)
+	#scroll to selected item
+	item_list.ensure_current_is_visible()
+
+func activate():
+	for idx in item_list.get_selected_items():
+		_on_item_activated(idx)
 
 func _on_item_activated(index: int):
 	var info: GameData = game_list[index]
 	_execute(info.get_executable_path())
 
 func _execute(path):
-	OS.execute(path, PoolStringArray())
+	OS.execute(path, PoolStringArray(), false)
 	pass
 
 
