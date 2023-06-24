@@ -18,7 +18,5 @@ var GAMES_PATH :String = PATH.plus_file("games")
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		var kevent: InputEventKey = event
-		if kevent.alt and kevent.scancode == KEY_ENTER:
-			OS.window_fullscreen = !OS.window_fullscreen
+	if event.is_action("fullscreen") and event.is_pressed():
+		OS.window_fullscreen = !OS.window_fullscreen
