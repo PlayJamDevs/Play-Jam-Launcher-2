@@ -1,23 +1,22 @@
 extends Node
 
+const NO_PROGRAM = -1
+
 onready var quit_timer: Timer = $"%quit_timer"
-var running_program
+var running_program_pid = NO_PROGRAM
 
 func _quit_focused_window():
-	if running_program == -1:
+	if running_program_pid == NO_PROGRAM:
 		return
-	OS.kill(running_program)
-	running_program = -1
+	if OS.is_process_running(running_program_pid):
+		OS.kill(running_program_pid)
+	running_program_pid = NO_PROGRAM
 	pass
 func _on_running_program(pid):
-	running_program = pid
+	running_program_pid = pid
 
 func _process(delta: float) -> void:
-	if (
-		!OS.is_window_focused() and 
-		Input.is_action_pressed("quitA") and 
-		Input.is_action_pressed("quitB")
-	):
+	if Input.is_action_pressed("quitA") and Input.is_action_pressed("quitB"):
 		if quit_timer.is_stopped():
 			quit_timer.start()
 	else:
