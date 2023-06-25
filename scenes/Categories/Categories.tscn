@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Categories.gd" type="Script" id=1]
 [ext_resource path="res://assets/res/ui/dialog.tres" type="Texture" id=2]
 [ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=3]
-[ext_resource path="res://assets/res/global_theme.tres" type="Theme" id=4]
+[ext_resource path="res://assets/res/global_theme_v2.tres" type="Theme" id=4]
 [ext_resource path="res://assets/res/ui/game_frame.tres" type="Texture" id=5]
 [ext_resource path="res://assets/res/ui/sq01.tres" type="Texture" id=6]
+[ext_resource path="res://assets/res/fonts/font_header_48px.tres" type="DynamicFont" id=7]
 
 [sub_resource type="StyleBoxTexture" id=27]
 texture = ExtResource( 2 )
@@ -108,6 +109,7 @@ anchor_bottom = 1.0
 [node name="Label" type="Label" parent="HBoxContainer/Panel1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 7 )
 text = "PROXIMOS
 LANZAMIENTOS"
 align = 1
@@ -133,6 +135,7 @@ anchor_bottom = 1.0
 [node name="Label" type="Label" parent="HBoxContainer/Panel2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 7 )
 text = "INDIE
 GAMES"
 align = 1
@@ -159,6 +162,7 @@ anchor_bottom = 1.0
 [node name="Label" type="Label" parent="HBoxContainer/Panel3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 7 )
 text = "GAME
 JAMS"
 align = 1

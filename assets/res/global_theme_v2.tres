@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=15 format=2]
+[gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=1]
-[ext_resource path="res://assets/res/fonts/font_default_32px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/ui-theme.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=8]
@@ -126,7 +125,7 @@ Label/constants/line_spacing = 3
 Label/constants/shadow_as_outline = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
-Label/fonts/font = ExtResource( 2 )
+Label/fonts/font = ExtResource( 1 )
 Label/styles/normal = null
 Panel/styles/panel = SubResource( 1 )
 WindowDialog/icons/close = SubResource( 3 )
