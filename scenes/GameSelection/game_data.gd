@@ -12,6 +12,8 @@ var description := ""
 var cover : Texture setget,get_cover
 
 const NOT_FOUND_TEXTURE = preload("res://assets/NOT_FOUND.png")
+const LOADING_QR_TEXTURE = preload("res://assets/QR_LOADING.png")
+
 
 func get_cover() -> Texture:
 	if !cover:
@@ -23,10 +25,15 @@ func get_cover() -> Texture:
 	return cover
 
 var qr : Texture setget,get_qr
+var _qr_tex : ImageTexture = ImageTexture.new()
+var _generating_qr := false
 func get_qr() -> Texture:
-	if !qr:
-		qr = generate_qr()
-	return qr
+	if !qr and !_generating_qr:
+		_qr_tex.create_from_image(LOADING_QR_TEXTURE.get_data(), ImageTexture.FLAG_CONVERT_TO_LINEAR)
+		_generate_qr_async()
+	elif _thread.is_active() and !_thread.is_alive():
+		_thread.wait_to_finish()
+	return _qr_tex
 
 func initialize():
 #	get_cover()
@@ -49,10 +56,16 @@ func load_img(path) -> Texture:
 	tex.create_from_image(img, 0)
 	return tex
 
-
-
-func generate_qr() -> Texture:
+func _generate_qr() -> void:
+	_generating_qr = true
 	var qr_code: QrCode = QrCode.new()
 	qr_code.error_correct_level = QrCode.ERROR_CORRECT_LEVEL.LOW
-	var texture: ImageTexture = qr_code.get_texture(link)
-	return texture
+	qr = qr_code.get_texture(link)
+	_qr_tex.create_from_image(qr.get_data(), ImageTexture.FLAG_CONVERT_TO_LINEAR)
+	_generating_qr = false
+
+var _thread : Thread
+
+func _generate_qr_async():
+	_thread = Thread.new()
+	_thread.start(self, "_generate_qr")
