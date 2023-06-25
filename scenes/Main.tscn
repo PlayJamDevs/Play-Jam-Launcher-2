@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Categories/Categories.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/res/fonts/font_header_48px.tres" type="DynamicFont" id=8]
 [ext_resource path="res://scenes/GameSelection/GameSelection.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
@@ -994,6 +995,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 968.0
 theme = ExtResource( 4 )
+custom_fonts/font = ExtResource( 8 )
 text = "PRESIONA CUALQUIER BOTON PARA COMENZAR"
 align = 1
 valign = 1
@@ -1009,8 +1011,8 @@ color = Color( 0, 0, 0, 1 )
 unique_name_in_owner = true
 visible = false
 margin_top = 1080.0
-margin_right = 1920.0
-margin_bottom = 2160.0
+margin_right = 5760.0
+margin_bottom = 4320.0
 
 [node name="Others" type="Node" parent="."]
 

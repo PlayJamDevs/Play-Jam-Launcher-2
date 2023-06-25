@@ -12,7 +12,7 @@ var executable_path := ""
 const MAX_QR_SIZE = 240
 
 func display_game(info: GameData):
-	title.text = info.title
+	title.text = "Título: %s" % info.title
 	year.text = "Año: %s" % info.year
 	author.text = "Autor: %s" % info.author
 	link.text = "Link: %s" % info.link
