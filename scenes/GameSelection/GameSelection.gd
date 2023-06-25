@@ -2,6 +2,8 @@ extends UIState
 onready var game_info_display: Control = $"%game_info_display"
 onready var item_list: ItemList = $"%ItemList"
 
+signal running_program(pid)
+
 var game_list := []
 var selected_item = -1
 func _enter_state():
@@ -57,7 +59,8 @@ func _on_item_activated(index: int):
 	_execute(info.get_executable_path())
 
 func _execute(path):
-	OS.execute(path, PoolStringArray(), false)
+	var pid = OS.execute(path, PoolStringArray(), false)
+	emit_signal("running_program", pid)
 	pass
 
 
