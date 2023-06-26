@@ -28,6 +28,8 @@ var qr : Texture setget,get_qr
 var _qr_tex : ImageTexture = ImageTexture.new()
 var _generating_qr := false
 func get_qr() -> Texture:
+	if !link:
+		return null
 	if !qr and !_generating_qr:
 		_qr_tex.create_from_image(LOADING_QR_TEXTURE.get_data(), ImageTexture.FLAG_CONVERT_TO_LINEAR)
 		_generate_qr_async()
