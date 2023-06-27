@@ -37,9 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("ui_accept"):
 		activate()
-	if event.is_action_pressed("ui_down", true):
+	if event.is_action_pressed("ui_down"):
 		select(selected_item + 1)
-	if event.is_action_pressed("ui_up", true):
+	if event.is_action_pressed("ui_up"):
 		select(selected_item - 1)
 
 func select(idx):
