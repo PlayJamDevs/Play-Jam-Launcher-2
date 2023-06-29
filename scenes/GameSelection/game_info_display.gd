@@ -14,11 +14,16 @@ const MAX_QR_SIZE = 240
 static func entry_text(entry, value):
 	return "%s: %s" % [entry, value if value else "???"]
 
+# non breaking space (igual desgraciadamente no se detecta como espacio)
+# y se ve todo junto
+static func entry_text_no_break_space(entry, value):
+	return "%s: %s" % [entry, value if value else "???"]
+
 func display_game(info: GameData):
 	title.text = entry_text("Título", info.title)
 	year.text = entry_text("Año", info.year)
 	author.text = entry_text("Autor", info.author)
-	link.text = entry_text("Link", info.link)
+	link.text = entry_text_no_break_space("Link", info.link)
 	description.text = entry_text("Descripción", info.description)
 	
 	cover.texture = info.cover
