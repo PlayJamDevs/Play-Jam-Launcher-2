@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/GameSelection/GameSelection.gd" type="Script" id=1]
 [ext_resource path="res://assets/res/global_theme_v2.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/GameSelection/game_info_display.gd" type="Script" id=5]
 [ext_resource path="res://scenes/GameSelection/quitter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/GameSelection/echo_dpad_simulator.tscn" type="PackedScene" id=7]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.435294, 0.258824, 0.662745, 0.588235 )
@@ -159,7 +160,6 @@ rect_min_size = Vector2( 0, 123 )
 custom_fonts/font = ExtResource( 4 )
 text = "Link:"
 autowrap = true
-percent_visible = -0.2
 max_lines_visible = 3
 
 [node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/HBoxContainer/game_info_display/VBoxContainer/HBoxContainer"]
@@ -224,3 +224,5 @@ margin_bottom = 1080.0
 rect_min_size = Vector2( 0, 32 )
 
 [node name="quitter" parent="." instance=ExtResource( 6 )]
+
+[node name="echo_dpad_simulator" parent="." instance=ExtResource( 7 )]
