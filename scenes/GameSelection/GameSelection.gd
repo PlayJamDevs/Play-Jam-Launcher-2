@@ -3,6 +3,7 @@ onready var game_info_display: Control = $"%game_info_display"
 onready var item_list: ItemList = $"%ItemList"
 
 signal running_program(pid)
+signal x_pressed
 
 var game_list := []
 var selected_item = -1
@@ -22,6 +23,7 @@ func focus():
 func _ready() -> void:
 	item_list.connect("item_selected", self, "_on_item_selected")
 	item_list.connect("item_activated", self, "_on_item_activated")
+	animation_player.connect("animation_finished",self,"_on_animation_finished")
 
 func _on_item_selected(index: int):
 	game_info_display.display_game(game_list[index])
@@ -31,12 +33,19 @@ func _on_item_selected(index: int):
 func _unhandled_input(event: InputEvent) -> void:
 	if !OS.is_window_focused():
 		return
+	if has_program_running():
+		return
+	if event.is_action_pressed("ui_accept"):
+		if !preparing_execution:
+			activate()
+		emit_signal("execution_prepare_finished", false)
+		
+	if preparing_execution:
+		return
 	if event.is_action_pressed("ui_cancel"):
 		n_AnimTree["parameters/GameSelection/conditions/exit"] = true
 	if item_list.items.empty():
 		return
-	if event.is_action_pressed("ui_accept"):
-		activate()
 	if event.is_action_pressed("ui_down"):
 		select(selected_item + 1)
 	if event.is_action_pressed("ui_up"):
@@ -54,15 +63,53 @@ func activate():
 	for idx in item_list.get_selected_items():
 		_on_item_activated(idx)
 
+var preparing_execution = false
+const NO_PROGRAM = -1
+var running_program_pid = NO_PROGRAM
+onready var animation_player : AnimationPlayer = $"%animation_player"
 func _on_item_activated(index: int):
-	var info: GameData = game_list[index]
-	_execute(info.get_executable_path())
+	prepare_execution(index)
+
+signal execution_prepare_finished(result)
+func prepare_execution(index):
+	preparing_execution = true
+	animation_player.play("launch")
+	#wait 1 frame to prevent the X pressed to launch to also trigger abort
+	yield(get_tree(),"idle_frame")
+	var should_launch = yield(self, "execution_prepare_finished")
+	if should_launch:
+		var info: GameData = game_list[index]
+		_execute(info.get_executable_path())
+	else:
+		animation_player.play("RESET")
+	preparing_execution = false
+
+func _on_animation_finished(anim):
+	if anim == "launch":
+		emit_signal("execution_prepare_finished", true)
+
+	
+func _notification(what: int) -> void:
+	if what == MainLoop.NOTIFICATION_WM_FOCUS_IN:
+		if !has_program_running() and !preparing_execution:
+			animation_player.play("RESET")
+
+func _process(delta: float) -> void:
+	#If program was exited through other means than the Launcher's
+	if !preparing_execution and running_program_pid != NO_PROGRAM and !has_program_running():
+		running_program_pid = NO_PROGRAM
+		animation_player.play("RESET")
 
 func _execute(path):
-	var pid = OS.execute(path, PoolStringArray(), false)
-	emit_signal("running_program", pid)
+	running_program_pid = OS.execute(path, PoolStringArray(), false)
+	emit_signal("running_program", running_program_pid)
 	pass
 
+func has_program_running():
+	return (
+		running_program_pid != NO_PROGRAM 
+		and OS.is_process_running(running_program_pid)
+	)
 
 func _display_game_list(list: Array):
 	game_list = list
