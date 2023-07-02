@@ -3,7 +3,6 @@ onready var game_info_display: Control = $"%game_info_display"
 onready var item_list: ItemList = $"%ItemList"
 
 signal running_program(pid)
-signal x_pressed
 
 var game_list := []
 var selected_item = -1
