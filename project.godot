@@ -64,6 +64,7 @@ config/icon="res://icon.png"
 
 EventBus="*res://scripts/EventBus.gd"
 Global="*res://scripts/Global.gd"
+Music="*res://scenes/Music.tscn"
 
 [display]
 
