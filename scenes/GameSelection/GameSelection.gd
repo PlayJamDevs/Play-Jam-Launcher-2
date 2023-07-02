@@ -38,7 +38,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		if !preparing_execution:
 			activate()
-		emit_signal("execution_prepare_finished", false)
+		if can_abort:
+			emit_signal("execution_prepare_finished", false)
 		
 	if preparing_execution:
 		return
@@ -66,6 +67,7 @@ func activate():
 var preparing_execution = false
 const NO_PROGRAM = -1
 var running_program_pid = NO_PROGRAM
+export var can_abort = false
 onready var animation_player : AnimationPlayer = $"%animation_player"
 func _on_item_activated(index: int):
 	prepare_execution(index)
