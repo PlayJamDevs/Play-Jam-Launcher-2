@@ -73,6 +73,8 @@ func _on_item_activated(index: int):
 
 signal execution_prepare_finished(result)
 func prepare_execution(index):
+	if preparing_execution:
+		return
 	preparing_execution = true
 	animation_player.play("launch")
 	#wait 1 frame to prevent the X pressed to launch to also trigger abort

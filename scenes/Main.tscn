@@ -239,6 +239,18 @@ tracks/18/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("../UI/Categories/credits:rect_position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1040 ) ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "categories_exit"
@@ -252,7 +264,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 480, 840 ), Vector2( 480, 1096 ) ]
+"values": [ Vector2( 480, 805 ), Vector2( 480, 1096 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../UI/Categories/PanelDescription:rect_rotation")
@@ -352,6 +364,18 @@ tracks/8/keys = {
 "method": "exit_state"
 } ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("../UI/Categories/credits:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1016 ), Vector2( 0, 1080 ) ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "categories_idle"
@@ -417,7 +441,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 480, 1096 ), Vector2( 480, 840 ) ]
+"values": [ Vector2( 480, 1096 ), Vector2( 480, 805 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../UI/Categories/PanelDescription:rect_rotation")
@@ -540,6 +564,18 @@ tracks/10/keys = {
 "args": [  ],
 "method": "enter_state"
 } ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../UI/Categories/credits:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1100 ), Vector2( 0, 1016 ) ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -1004,13 +1040,13 @@ anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Categories" parent="UI" instance=ExtResource( 7 )]
+visible = false
 
 [node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true
 visible = false
 margin_top = 1080.0
 margin_bottom = 1080.0
-can_abort = false
 
 [node name="Others" type="Node" parent="."]
 

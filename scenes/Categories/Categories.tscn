@@ -21,7 +21,6 @@ margin_top = 3.0
 margin_bottom = 4.0
 
 [node name="Categories" type="Control"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 4 )
@@ -165,3 +164,14 @@ align = 1
 valign = 1
 autowrap = true
 uppercase = true
+
+[node name="credits" type="RichTextLabel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -78.0
+margin_bottom = -38.0
+bbcode_enabled = true
+bbcode_text = "[center]Idea y desarrollo: [color=yellow]Pablo Da Costa Leite[/color] - Programación: [color=yellow]Santiago Requena[/color] - Música y sonido: [color=yellow]Migue Gessaghi[/color][/center]"
+text = "Idea y desarrollo: Pablo Da Costa Leite - Programación: Santiago Requena - Música y sonido: Migue Gessaghi"
+fit_content_height = true
