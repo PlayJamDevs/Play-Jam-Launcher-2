@@ -1,7 +1,5 @@
 extends UIState
 
-onready var n_Anim := $AnimIntro
-
 func enter_state() -> void:
 	.enter_state()
 

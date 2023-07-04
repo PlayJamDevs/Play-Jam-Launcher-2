@@ -1010,6 +1010,7 @@ unique_name_in_owner = true
 visible = false
 margin_top = 1080.0
 margin_bottom = 1080.0
+can_abort = false
 
 [node name="Others" type="Node" parent="."]
 
