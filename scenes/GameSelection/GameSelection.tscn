@@ -164,7 +164,6 @@ anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 state = 2
-can_abort = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -412,6 +411,13 @@ text = "PRESIONA X PARA ABORTAR"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="how_to_quit" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 4 )
+text = "(para salir de un juego presionar START + SELECT por 2 segundos)"
+align = 1
 
 [node name="music_handler" type="Node" parent="."]
 script = ExtResource( 9 )
