@@ -221,8 +221,9 @@ func _load_game_info(game_dir_path) -> GameData:
 	ret.executable_name = executable_name
 	ret.cover_name = cover_name
 	for key in game_info.keys():
-		if key in ret:
-			ret[key] = game_info[key]
+		var val = game_info[key]
+		if key in ret and val:
+			ret[key] = str(val)
 	if !ret.title:
 		ret.title = generate_title_from_executable(executable_name)
 	ret.initialize()
