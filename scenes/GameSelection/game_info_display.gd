@@ -3,7 +3,7 @@ extends Control
 onready var title: Label = $"%title"
 onready var year: Label = $"%year"
 onready var author: Label = $"%author"
-onready var link: Label = $"%link"
+onready var link: RichTextLabel = $"%link"
 onready var qr: TextureRect = $"%QR"
 onready var cover: TextureRect = $"%cover"
 onready var description: Label = $"%description"
@@ -23,7 +23,8 @@ func display_game(info: GameData):
 	title.text = entry_text("Título", info.title)
 	year.text = entry_text("Año", info.year)
 	author.text = entry_text("Autor", info.author)
-	link.text = entry_text_no_break_space("Link", info.link)
+	link.bbcode_text = "Link:[url]%s[/url]" % info.link
+	link.url = info.link
 	description.text = entry_text("Descripción", info.description)
 	
 	cover.texture = info.cover

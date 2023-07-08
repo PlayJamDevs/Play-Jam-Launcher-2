@@ -6,10 +6,12 @@ onready var n_AnimTree : AnimationTree = get_tree().get_nodes_in_group("AnimTree
 
 func enter_state() -> void:
 	set_process_unhandled_input(true)
+	set_process_input(true)
 	_enter_state()
 
 func exit_state() -> void:
 	set_process_unhandled_input(false)
+	set_process_input(false)
 	_exit_state()
 
 func _ready() -> void:

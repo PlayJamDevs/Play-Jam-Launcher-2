@@ -33,7 +33,12 @@ func _input(event: InputEvent) -> void:
 		return
 	if has_program_running():
 		return
-
+	if event.is_action_pressed("visit_link"):
+		if !game_list.empty():
+			var link = game_list[selected_item].link
+			if link:
+				OS.shell_open(link)
+	
 	if (
 		can_abort and 
 		(
