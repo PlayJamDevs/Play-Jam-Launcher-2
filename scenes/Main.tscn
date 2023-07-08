@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -7,18 +7,7 @@
 [ext_resource path="res://scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Categories/Categories.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/QR_LOADING.png" type="Texture" id=8]
-[ext_resource path="res://scenes/QR_suma_tu_juego.gd" type="Script" id=9]
 [ext_resource path="res://scenes/GameSelection/GameSelection.tscn" type="PackedScene" id=12]
-
-[sub_resource type="StyleBoxFlat" id=45]
-bg_color = Color( 0.384314, 0, 0.698039, 0.788235 )
-border_width_left = 8
-border_width_top = 8
-border_width_right = 8
-border_width_bottom = 8
-border_color = Color( 0.917647, 0.694118, 1, 1 )
-border_blend = true
 
 [sub_resource type="Animation" id=1]
 resource_name = "RESET"
@@ -1097,30 +1086,9 @@ visible = false
 margin_top = -40.0
 margin_bottom = 0.0
 
-[node name="TextureRect" type="TextureRect" parent="UI/Categories"]
-margin_left = 1656.0
+[node name="TextureRect" parent="UI/Categories" index="4"]
 margin_top = 20.0
-margin_right = 1896.0
 margin_bottom = 260.0
-rect_min_size = Vector2( 240, 240 )
-mouse_default_cursor_shape = 2
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-script = ExtResource( 9 )
-
-[node name="Panel" type="PanelContainer" parent="UI/Categories/TextureRect"]
-margin_left = -410.0
-margin_top = 144.0
-margin_bottom = 240.0
-custom_styles/panel = SubResource( 45 )
-
-[node name="Label" type="Label" parent="UI/Categories/TextureRect/Panel"]
-margin_left = 8.0
-margin_top = 19.0
-margin_right = 402.0
-margin_bottom = 77.0
-text = "¡SUMÁ TU JUEGO!"
 
 [node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true
