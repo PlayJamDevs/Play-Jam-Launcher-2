@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 			e.action = "ui_up"
 		e.pressed = true
 		e.strength = 1.0
-		owner._unhandled_input(e)
+		owner.handle_input(e)
 		echo_repeat_timer.start()
 
 func _ready() -> void:
