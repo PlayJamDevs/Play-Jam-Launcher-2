@@ -29,11 +29,19 @@ func _on_item_selected(index: int):
 	selected_item = index
 	
 func _input(event: InputEvent) -> void:
+	handle_input(event)
+	
+func handle_input(event):
 	if !OS.is_window_focused():
 		return
 	if has_program_running():
 		return
-
+	if event.is_action_pressed("visit_link"):
+		if !game_list.empty():
+			var link = game_list[selected_item].link
+			if link:
+				OS.shell_open(link)
+	
 	if (
 		can_abort and 
 		(
