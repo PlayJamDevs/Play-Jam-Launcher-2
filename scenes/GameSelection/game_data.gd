@@ -71,3 +71,13 @@ var _thread : Thread
 func _generate_qr_async():
 	_thread = Thread.new()
 	_thread.start(self, "_generate_qr")
+
+func as_dictionary():
+	return {
+		title = title,
+		year = year,
+		author = author,
+		link = link,
+		description = description
+	}
+	

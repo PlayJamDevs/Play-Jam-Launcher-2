@@ -227,6 +227,11 @@ func _load_game_info(game_dir_path) -> GameData:
 	if !ret.title:
 		ret.title = generate_title_from_executable(executable_name)
 	ret.initialize()
+	if !has_info:
+		var file = File.new()
+		file.open(game_dir_path.plus_file("info.json"), File.WRITE)
+		file.store_string(JSON.print(ret.as_dictionary(),"\t"))
+		file.close()
 	return ret
 
 static func generate_title_from_executable(executable:String):
