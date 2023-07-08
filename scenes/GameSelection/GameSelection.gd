@@ -221,9 +221,19 @@ func _load_game_info(game_dir_path) -> GameData:
 	ret.executable_name = executable_name
 	ret.cover_name = cover_name
 	for key in game_info.keys():
-		if key in ret:
-			ret[key] = game_info[key]
+		var val = game_info[key]
+		if key in ret and val:
+			ret[key] = str(val)
+	if !ret.title:
+		ret.title = generate_title_from_executable(executable_name)
 	ret.initialize()
+	return ret
+
+static func generate_title_from_executable(executable:String):
+	var ret : String = executable.trim_suffix(".exe").trim_suffix(".x86_64").replace(".", " ").replace("_", " ").strip_edges()
+	if !ret:
+		return ret
+	ret[0] = ret[0].capitalize()
 	return ret
 
 func _is_executable(file_path:String):
