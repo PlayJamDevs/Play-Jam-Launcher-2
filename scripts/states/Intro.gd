@@ -10,11 +10,11 @@ func _unhandled_input(event : InputEvent):
 	
 	if (
 		event is InputEventKey or
-		event is InputEventJoypadButton or Global.is_click(event)
+		event is InputEventJoypadButton or Global.is_left_click(event)
 	) and event.pressed:
 		exit()
 func _gui_input(event: InputEvent) -> void:
-	if Global.is_click(event):
+	if Global.is_left_click(event):
 		exit()
 
 func exit():

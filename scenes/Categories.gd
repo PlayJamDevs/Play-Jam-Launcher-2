@@ -60,7 +60,7 @@ func _ready():
 		i+=1
 
 func _panel_gui_input(event:InputEvent, index:int):
-	if Global.is_click(event):
+	if Global.is_left_click(event):
 		selected_idx = index
 		goto_games()
 		

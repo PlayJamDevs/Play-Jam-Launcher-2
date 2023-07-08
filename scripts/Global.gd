@@ -21,9 +21,13 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("fullscreen") and event.is_pressed():
 		OS.window_fullscreen = !OS.window_fullscreen
 
-func is_click(event: InputEvent) -> bool:
+func is_left_click(event: InputEvent) -> bool:
+	return is_click(event, BUTTON_LEFT)
+func is_right_click(event: InputEvent) -> bool:
+	return is_click(event, BUTTON_RIGHT)
+func is_click(event:InputEvent, button:int)->bool:
 	return (
 		event is InputEventMouseButton and 
 		event.is_pressed() and 
-		(event as InputEventMouseButton).button_index == BUTTON_LEFT
+		(event as InputEventMouseButton).button_index == button
 	)

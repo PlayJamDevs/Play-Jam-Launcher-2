@@ -34,8 +34,16 @@ func _input(event: InputEvent) -> void:
 	if has_program_running():
 		return
 
-	if can_abort and (Global.is_click(event) or event.is_action_pressed("ui_accept")):
+	if (
+		can_abort and 
+		(
+			Global.is_left_click(event) or 
+			Global.is_right_click(event) or 
+			event.is_action_pressed("ui_accept")
+		)
+	):
 		emit_signal("execution_prepare_finished", false)
+		return
 		
 	if event.is_action_pressed("ui_accept"):
 		if !preparing_execution:
