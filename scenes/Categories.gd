@@ -24,7 +24,7 @@ var selected
 func _unhandled_input(event : InputEvent):
 	
 	if event.is_action_pressed("ui_accept"):
-		open_games_folder(folders[selected_idx])
+		goto_games()
 		return
 	
 	var direction = (event.get_action_strength("ui_right") - event.get_action_strength("ui_left"))
@@ -38,6 +38,9 @@ func _unhandled_input(event : InputEvent):
 	
 	update_selected()
 
+func goto_games():
+	open_games_folder(folders[selected_idx])
+
 func update_selected():
 	selected = n_PanelC.get_child(selected_idx)
 	for p in n_PanelC.get_children():
@@ -49,6 +52,21 @@ func update_selected():
 
 func _ready():
 	._ready()
+	update_selected()
+	var i = 0
+	for p in n_PanelC.get_children():
+		p.connect("gui_input",self,"_panel_gui_input",[i])
+		p.connect("mouse_entered",self,"_panel_mouse_entered",[i])
+		i+=1
+
+func _panel_gui_input(event:InputEvent, index:int):
+	if Global.is_click(event):
+		selected_idx = index
+		goto_games()
+		
+
+func _panel_mouse_entered(index:int):
+	selected_idx = index
 	update_selected()
 
 func open_games_folder(folder_name):

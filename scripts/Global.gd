@@ -20,3 +20,10 @@ var GAMES_PATH :String = PATH.plus_file("games")
 func _input(event: InputEvent) -> void:
 	if event.is_action("fullscreen") and event.is_pressed():
 		OS.window_fullscreen = !OS.window_fullscreen
+
+func is_click(event: InputEvent) -> bool:
+	return (
+		event is InputEventMouseButton and 
+		event.is_pressed() and 
+		(event as InputEventMouseButton).button_index == BUTTON_LEFT
+	)
