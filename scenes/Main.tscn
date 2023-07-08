@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -947,14 +947,17 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 advance_condition = "exit"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+advance_condition = "exit"
+
 [sub_resource type="AnimationNodeStateMachine" id=14]
 states/intro/node = SubResource( 9 )
-states/intro/position = Vector2( 317, 48 )
+states/intro/position = Vector2( 373, 131 )
 states/intro_exit/node = SubResource( 10 )
-states/intro_exit/position = Vector2( 721, 48 )
+states/intro_exit/position = Vector2( 695, 131 )
 states/intro_idle/node = SubResource( 11 )
 states/intro_idle/position = Vector2( 508, 48 )
-transitions = [ "intro", "intro_idle", SubResource( 12 ), "intro_idle", "intro_exit", SubResource( 13 ) ]
+transitions = [ "intro", "intro_idle", SubResource( 12 ), "intro_idle", "intro_exit", SubResource( 13 ), "intro", "intro_exit", SubResource( 44 ) ]
 start_node = "intro"
 end_node = "intro_exit"
 graph_offset = Vector2( -50.0661, 0 )
@@ -1037,6 +1040,7 @@ valign = 1
 [node name="FadeBlack" type="ColorRect" parent="UI/Intro"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 color = Color( 0, 0, 0, 1 )
 
 [node name="Categories" parent="UI" instance=ExtResource( 7 )]

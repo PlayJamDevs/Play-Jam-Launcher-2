@@ -380,6 +380,7 @@ anims/launch = SubResource( 3 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 color = Color( 0, 0, 0, 0 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect2"]
@@ -392,6 +393,7 @@ margin_right = 1920.0
 margin_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 custom_fonts/font = SubResource( 4 )
 text = "3"
 align = 1
@@ -403,6 +405,7 @@ margin_right = 1920.0
 margin_bottom = 871.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 5
 custom_constants/shadow_offset_y = 5

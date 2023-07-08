@@ -10,7 +10,12 @@ func _unhandled_input(event : InputEvent):
 	
 	if (
 		event is InputEventKey or
-		event is InputEventJoypadButton
+		event is InputEventJoypadButton or Global.is_left_click(event)
 	) and event.pressed:
-		
-		n_AnimTree["parameters/Intro/conditions/exit"] = true
+		exit()
+func _gui_input(event: InputEvent) -> void:
+	if Global.is_left_click(event):
+		exit()
+
+func exit():
+	n_AnimTree["parameters/Intro/conditions/exit"] = true

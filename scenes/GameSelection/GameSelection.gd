@@ -28,17 +28,27 @@ func _on_item_selected(index: int):
 	game_info_display.display_game(game_list[index])
 	selected_item = index
 	
-
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if !OS.is_window_focused():
 		return
 	if has_program_running():
 		return
+
+	if (
+		can_abort and 
+		(
+			Global.is_left_click(event) or 
+			Global.is_right_click(event) or 
+			event.is_action_pressed("ui_accept")
+		)
+	):
+		emit_signal("execution_prepare_finished", false)
+		return
+		
 	if event.is_action_pressed("ui_accept"):
 		if !preparing_execution:
 			activate()
-		if can_abort:
-			emit_signal("execution_prepare_finished", false)
+			
 		
 	if preparing_execution:
 		return
