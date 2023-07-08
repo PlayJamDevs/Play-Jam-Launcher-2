@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/res/shader_retro.tres" type="Material" id=1]
 [ext_resource path="res://assets/playjam_logo_transparent.png" type="Texture" id=2]
@@ -7,7 +7,18 @@
 [ext_resource path="res://scenes/Main.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/Intro.gd" type="Script" id=6]
 [ext_resource path="res://scenes/Categories/Categories.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/QR_LOADING.png" type="Texture" id=8]
+[ext_resource path="res://scenes/QR_suma_tu_juego.gd" type="Script" id=9]
 [ext_resource path="res://scenes/GameSelection/GameSelection.tscn" type="PackedScene" id=12]
+
+[sub_resource type="StyleBoxFlat" id=45]
+bg_color = Color( 0.384314, 0, 0.698039, 0.788235 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.917647, 0.694118, 1, 1 )
+border_blend = true
 
 [sub_resource type="Animation" id=1]
 resource_name = "RESET"
@@ -251,6 +262,18 @@ tracks/19/keys = {
 "update": 0,
 "values": [ Vector2( 0, 1040 ) ]
 }
+tracks/20/type = "value"
+tracks/20/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1656, 20 ) ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "categories_exit"
@@ -375,6 +398,18 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1016 ), Vector2( 0, 1080 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1656, 20 ), Vector2( 1656, -374 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -576,6 +611,18 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1100 ), Vector2( 0, 1016 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1656, -374 ), Vector2( 1656, 20 ) ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -1046,6 +1093,35 @@ color = Color( 0, 0, 0, 1 )
 [node name="Categories" parent="UI" instance=ExtResource( 7 )]
 visible = false
 
+[node name="credits" parent="UI/Categories" index="3"]
+margin_top = -40.0
+margin_bottom = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/Categories"]
+margin_left = 1656.0
+margin_top = 20.0
+margin_right = 1896.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 240, 240 )
+mouse_default_cursor_shape = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 9 )
+
+[node name="Panel" type="PanelContainer" parent="UI/Categories/TextureRect"]
+margin_left = -410.0
+margin_top = 144.0
+margin_bottom = 240.0
+custom_styles/panel = SubResource( 45 )
+
+[node name="Label" type="Label" parent="UI/Categories/TextureRect/Panel"]
+margin_left = 8.0
+margin_top = 19.0
+margin_right = 402.0
+margin_bottom = 77.0
+text = "¡SUMÁ TU JUEGO!"
+
 [node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true
 visible = false
@@ -1082,3 +1158,5 @@ parameters/GameSelection/playback = SubResource( 37 )
 parameters/GameSelection/conditions/exit = false
 parameters/Intro/playback = SubResource( 17 )
 parameters/Intro/conditions/exit = false
+
+[editable path="UI/Categories"]
