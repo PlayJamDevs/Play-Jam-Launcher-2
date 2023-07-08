@@ -251,6 +251,18 @@ tracks/19/keys = {
 "update": 0,
 "values": [ Vector2( 0, 1040 ) ]
 }
+tracks/20/type = "value"
+tracks/20/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1656, 20 ) ]
+}
 
 [sub_resource type="Animation" id=28]
 resource_name = "categories_exit"
@@ -375,6 +387,18 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1016 ), Vector2( 0, 1080 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1656, 20 ), Vector2( 1656, -374 ) ]
 }
 
 [sub_resource type="Animation" id=18]
@@ -576,6 +600,18 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 1100 ), Vector2( 0, 1016 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../UI/Categories/TextureRect:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1656, -374 ), Vector2( 1656, 20 ) ]
 }
 
 [sub_resource type="Animation" id=43]
@@ -1046,6 +1082,14 @@ color = Color( 0, 0, 0, 1 )
 [node name="Categories" parent="UI" instance=ExtResource( 7 )]
 visible = false
 
+[node name="credits" parent="UI/Categories" index="3"]
+margin_top = -40.0
+margin_bottom = 0.0
+
+[node name="TextureRect" parent="UI/Categories" index="4"]
+margin_top = 20.0
+margin_bottom = 260.0
+
 [node name="GameSelection" parent="UI" instance=ExtResource( 12 )]
 unique_name_in_owner = true
 visible = false
@@ -1082,3 +1126,5 @@ parameters/GameSelection/playback = SubResource( 37 )
 parameters/GameSelection/conditions/exit = false
 parameters/Intro/playback = SubResource( 17 )
 parameters/Intro/conditions/exit = false
+
+[editable path="UI/Categories"]

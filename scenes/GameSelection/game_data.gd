@@ -78,6 +78,7 @@ func as_dictionary():
 		year = year,
 		author = author,
 		link = link,
-		description = description
+		description = description,
+		executable_name = executable_name
 	}
 	

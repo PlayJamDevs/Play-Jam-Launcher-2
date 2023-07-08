@@ -186,7 +186,7 @@ func _load_game_info(game_dir_path) -> GameData:
 		
 		var full_path = game_dir_path.plus_file(current_file)
 		
-		if !has_executable and _is_executable(full_path):
+		if (!has_executable or _is_bad_executable_name(executable_name)) and _is_executable(full_path):
 			has_executable = true
 			executable_name = current_file
 		elif !has_cover and "cover.png".nocasecmp_to(current_file) == 0:
@@ -216,14 +216,22 @@ func _load_game_info(game_dir_path) -> GameData:
 		
 		push_warning("couldn't fully load info for folder " + game_dir_path + ", missing " + suffix + ".")
 	
+	if (
+		game_info and 
+		game_info.has("executable_name") and 
+		game_info.executable_name and
+		_is_executable(game_dir_path.plus_file(game_info.executable_name))
+	):
+		executable_name = game_info.executable_name
+	
 	var ret := GameData.new()
-	ret.path_to_directory = game_dir_path
-	ret.executable_name = executable_name
-	ret.cover_name = cover_name
 	for key in game_info.keys():
 		var val = game_info[key]
 		if key in ret and val:
 			ret[key] = str(val)
+	ret.path_to_directory = game_dir_path
+	ret.cover_name = cover_name
+	ret.executable_name = executable_name
 	if !ret.title:
 		ret.title = generate_title_from_executable(executable_name)
 	ret.initialize()
@@ -246,6 +254,15 @@ func _is_executable(file_path:String):
 		(OS.has_feature("Windows") and file_path.ends_with(".exe")) or
 		(OS.has_feature("X11") and OS.execute("test", ["-x", file_path]) == 0)
 	)
+
+const EXECUTABLE_BLACKLIST = [
+	"UnityCrashHandler32.exe", 
+	"UnityCrashHandler64.exe"
+]
+
+func _is_bad_executable_name(file_path:String):
+	return file_path.get_file() in EXECUTABLE_BLACKLIST
+
 
 func _load_info(json_path) -> Dictionary:
 	var file = File.new()
