@@ -1,6 +1,7 @@
 [gd_resource type="Theme" load_steps=14 format=2]
 
 [ext_resource path="res://assets/res/fonts/font_default.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/res/panel_styleboxtexture.tres" type="StyleBox" id=2]
 [ext_resource path="res://assets/ui-theme.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=8]
@@ -62,18 +63,6 @@ expand_margin_left = 3.0
 expand_margin_right = 3.0
 expand_margin_top = 3.0
 
-[sub_resource type="StyleBoxTexture" id=1]
-content_margin_left = 10.0
-content_margin_right = 10.0
-content_margin_top = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource( 3 )
-region_rect = Rect2( 22, 34, 125, 125 )
-margin_left = 27.0
-margin_right = 19.3282
-margin_top = 24.047
-margin_bottom = 21.0
-
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 3 )
 region = Rect2( 21, 166, 16, 16 )
@@ -127,6 +116,7 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = ExtResource( 1 )
 Label/styles/normal = null
-Panel/styles/panel = SubResource( 1 )
+Panel/styles/panel = ExtResource( 2 )
+TooltipPanel/styles/panel = ExtResource( 2 )
 WindowDialog/icons/close = SubResource( 3 )
 WindowDialog/styles/panel = SubResource( 2 )

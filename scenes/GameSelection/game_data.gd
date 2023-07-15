@@ -8,7 +8,7 @@ var year := ""
 var author := ""
 var link := ""
 var description := ""
-var input_method := ""
+var input_method := "1"
 
 var cover : Texture setget,get_cover
 

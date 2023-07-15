@@ -1,6 +1,12 @@
 extends Node
 class_name InputMethod
 
+static func get_texture(input_method: String):
+	return _texture[_resolve(input_method)]
+
+static func get_text(input_method: String):
+	return "Se juega con " + _text[_resolve(input_method)]
+
 enum {
 	JOYSTICK = 1,
 	MOUSE,
@@ -9,29 +15,36 @@ enum {
 	SIZE
 }
 
-static func texture(input_method:int):
-	match input_method:
-		JOYSTICK: return preload("res://assets/textures/input_method/joystick.png")
-		MOUSE: return preload("res://assets/textures/input_method/mouse.png")
-		KEYBOARD: return preload("res://assets/textures/input_method/keyboard.png")
-		MOUSE_KEYBOARD: return preload("res://assets/textures/input_method/mouse_keyboard.png")
+const _texture = {
+		JOYSTICK: preload("res://assets/textures/input_method/joystick.png"),
+		MOUSE: preload("res://assets/textures/input_method/mouse.png"),
+		KEYBOARD: preload("res://assets/textures/input_method/keyboard.png"),
+		MOUSE_KEYBOARD: preload("res://assets/textures/input_method/mouse_keyboard.png"),
+}
 
-static func as_int(input_method:String):
+const _text = {
+		JOYSTICK: "Joystick",
+		MOUSE: "Mouse",
+		KEYBOARD: "Teclado",
+		MOUSE_KEYBOARD: "Mouse y Teclado",
+}
+
+static func _resolve(input_method:String):
 	var parsed_int = int(input_method)
-	if parsed_int > 0 and parsed_int < InputMethod.SIZE:
+	if parsed_int > 0 and parsed_int < SIZE:
 		return parsed_int
 
 	if input_method.findn("JOYSTICK") != -1:
-		return InputMethod.JOYSTICK
+		return JOYSTICK
 
 	var has_mouse = input_method.findn("MOUSE") != -1
 	var has_keyboard = input_method.findn("KEYBOARD") != -1 or input_method.findn("TECLADO") != -1
 
 	if has_mouse and has_keyboard:
-		return InputMethod.MOUSE_KEYBOARD
+		return MOUSE_KEYBOARD
 	if has_mouse:
-		return InputMethod.MOUSE
+		return MOUSE
 	if has_keyboard:
-		return InputMethod.KEYBOARD
+		return KEYBOARD
 
-	return InputMethod.JOYSTICK
+	return JOYSTICK
