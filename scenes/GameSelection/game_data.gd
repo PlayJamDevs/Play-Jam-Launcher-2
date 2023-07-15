@@ -8,6 +8,7 @@ var year := ""
 var author := ""
 var link := ""
 var description := ""
+var input_method := ""
 
 var cover : Texture setget,get_cover
 
@@ -79,6 +80,7 @@ func as_dictionary():
 		author = author,
 		link = link,
 		description = description,
-		executable_name = executable_name
+		executable_name = executable_name,
+		input_method = input_method
 	}
 	

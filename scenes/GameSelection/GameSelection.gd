@@ -283,7 +283,7 @@ func _load_info(json_path) -> Dictionary:
 
 func _get_missing_fields(json):
 	var ret = []
-	for key in ["year","title","author","description","link"]:
+	for key in ["year","title","author","description","link","input_method"]:
 		if !(key in json):
 			ret.append(key)
 	return ret

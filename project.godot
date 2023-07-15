@@ -25,6 +25,11 @@ _global_script_classes=[ {
 "path": "res://scripts/Global.gd"
 }, {
 "base": "Node",
+"class": "InputMethod",
+"language": "GDScript",
+"path": "res://scenes/GameSelection/input_method.gd"
+}, {
+"base": "Node",
 "class": "QrCode",
 "language": "GDScript",
 "path": "res://scripts/qr-code/qr_code.gd"
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "Events": "",
 "GameData": "",
 "Globals": "",
+"InputMethod": "",
 "QrCode": "",
 "ReedSolomonGenerator": "",
 "UIState": "",
