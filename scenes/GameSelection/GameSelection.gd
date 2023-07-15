@@ -40,7 +40,7 @@ func handle_input(event):
 		if !game_list.empty():
 			var link = game_list[selected_item].link
 			if link:
-				OS.shell_open(link)
+				Global.open_url(link)
 	
 	if (
 		can_abort and 
@@ -265,23 +265,18 @@ func _is_bad_executable_name(file_path:String):
 
 
 func _load_info(json_path) -> Dictionary:
-	var file = File.new()
-	file.open(json_path, file.READ)
-	var text = file.get_as_text()
-	var json : JSONParseResult = JSON.parse(text)
-	file.close()
-	if json.error:
-		push_warning("couldn't load json info for file " + json_path + ", error code " + json.error)
+	var result = Global.load_json_file(json_path)
+	if result == null:
 		return {}
-	if typeof(json.result) != TYPE_DICTIONARY:
+	if typeof(result) != TYPE_DICTIONARY:
 		push_warning("couldn't load json info for file " + json_path + ", object isn't a dictionary.")
 		return {}
-	var missing_fields = _get_missing_fields(json.result)
+	var missing_fields = _get_missing_fields(result)
 	if missing_fields:
 		push_warning("couldn't fully load json info for file " + json_path + ", missing fields are: " + str(missing_fields))
-	return json.result
+	return result
 
-func _get_missing_fields(json):
+func _get_missing_fields(json: Dictionary):
 	var ret = []
 	for key in ["year","title","author","description","link","input_method"]:
 		if !(key in json):

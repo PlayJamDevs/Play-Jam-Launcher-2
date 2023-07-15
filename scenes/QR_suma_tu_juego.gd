@@ -9,4 +9,4 @@ func _ready() -> void:
 	texture = _qr_tex
 func _gui_input(event: InputEvent) -> void:
 	if Global.is_left_click(event):
-		OS.shell_open(link)
+		Global.open_url(link)
