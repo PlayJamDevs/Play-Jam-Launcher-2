@@ -1084,7 +1084,7 @@ visible = false
 
 [node name="credits" parent="UI/Categories" index="3"]
 margin_top = -40.0
-margin_bottom = 0.0
+margin_bottom = 4240.0
 
 [node name="TextureRect" parent="UI/Categories" index="4"]
 margin_top = 20.0
