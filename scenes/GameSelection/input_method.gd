@@ -34,4 +34,4 @@ static func as_int(input_method:String):
 	if has_keyboard:
 		return InputMethod.KEYBOARD
 
-	return InputMethod.MOUSE_KEYBOARD
+	return InputMethod.JOYSTICK
