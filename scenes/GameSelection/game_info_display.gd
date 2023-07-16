@@ -7,6 +7,8 @@ onready var link: RichTextLabel = $"%link"
 onready var qr: TextureRect = $"%QR"
 onready var cover: TextureRect = $"%cover"
 onready var description: Label = $"%description"
+onready var input_method_texture: TextureRect = $"%input_method_texture"
+
 var executable_path := ""
 
 const MAX_QR_SIZE = 240
@@ -26,7 +28,9 @@ func display_game(info: GameData):
 	link.bbcode_text = "Link:[url]%s[/url]" % info.link
 	link.url = info.link
 	description.text = entry_text("Descripción", info.description)
-	
+#	print_debug("input_method is: ", info.input_method)
+	input_method_texture.texture = InputMethod.get_texture(info.input_method)
+	input_method_texture.hint_tooltip = InputMethod.get_text(info.input_method)
 	cover.texture = info.cover
 	qr.texture = info.qr
 	
@@ -46,4 +50,3 @@ func clear() -> void:
 	cover.texture = null
 	qr.texture = null
 	executable_path = ""
-

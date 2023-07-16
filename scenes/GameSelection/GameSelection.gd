@@ -278,12 +278,12 @@ func _load_info(json_path) -> Dictionary:
 		return {}
 	var missing_fields = _get_missing_fields(json.result)
 	if missing_fields:
-		push_warning("couldn't fully load json info for file " + json_path + ", missing fields are: " + missing_fields)
+		push_warning("couldn't fully load json info for file " + json_path + ", missing fields are: " + str(missing_fields))
 	return json.result
 
 func _get_missing_fields(json):
 	var ret = []
-	for key in ["year","title","author","description","link"]:
+	for key in ["year","title","author","description","link","input_method"]:
 		if !(key in json):
 			ret.append(key)
 	return ret
